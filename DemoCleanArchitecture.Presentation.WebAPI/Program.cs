@@ -1,6 +1,19 @@
+using DemoCleanArchitecture.ApplicationCore.Interfaces.Repositories;
+using DemoCleanArchitecture.ApplicationCore.Interfaces.Services;
+using DemoCleanArchitecture.ApplicationCore.Services;
+using DemoCleanArchitecture.Infrastructure.Database;
+using DemoCleanArchitecture.Infrastructure.Database.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
