@@ -11,7 +11,8 @@ namespace DemoCleanArchitecture.Infrastructure.Database
 {
     public class AppDbContext :DbContext
     {
-        public DbSet<Author> Author { get; set; } 
+        public DbSet<Author> Author { get; set; }
+        public DbSet<Member> Member { get; set; }
 
         public AppDbContext()
         {

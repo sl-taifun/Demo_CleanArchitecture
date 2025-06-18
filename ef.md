@@ -17,7 +17,7 @@ Depuis le terminal dans le projet "WebAPI"
 ```
 dotnet ef migrations add migration_name --project ../DemoCleanArchitecture.Infrastructure.Database
 ```
-depuis bAPI, il faut ajouter le paramètre
+depuis webAPI
 ```
 dotnet ef database update
 
